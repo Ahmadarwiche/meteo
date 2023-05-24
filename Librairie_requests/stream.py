@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 #import requests_exercice
 
-weather_data = pd.read_csv('weather_data.csv')
+df = pd.read_csv('weather_data.csv')
 
 # # Création d'un titre
 st.title("Meteo France")
@@ -18,7 +18,7 @@ selected_city = st.selectbox('Sélectionnez une ville', cities)
 
 # affichage des informations météorologiques pour la ville sélectionnée
 st.write('Informations météorologiques pour', selected_city)
-st.write(weather_data[weather_data['Ville'] == selected_city].iloc[0, 1:])
+st.write(df[df['Ville'] == selected_city].iloc[0, 1:])
 
 import streamlit as st
 import pandas as pd
@@ -26,7 +26,6 @@ import folium
 from streamlit_folium import folium_static
 
 # Chargement des données de température pour chaque ville
-df = weather_data
 df.set_index('Ville', inplace=True)
 
 # Coordonnées des villes
